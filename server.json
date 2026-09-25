@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/overheid-nl",
   "title": "Overheid Nl",
   "description": "data.overheid.nl MCP — the Netherlands national open-data portal (CKAN API).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/overheid-nl",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-overheid-nl",
