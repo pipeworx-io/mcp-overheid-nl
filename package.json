@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-overheid-nl",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "data.overheid.nl MCP — the Netherlands national open-data portal (CKAN API).",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-026890dfc9024f12c3a4d39c623daea30aa050fff5958a9f201a90879bdecb3d",
-    "sourceCommit": "4d51421bd010ad9a322c2245b70b401604912eff"
+    "sourceHash": "v1-d2365f65e608168df891ce951b418d1f1ebf9e79e604af5e007379fa3bd19720",
+    "sourceCommit": "f54ad77e789f27fe393978f9c080b5b18c87bb4f"
   }
 }
