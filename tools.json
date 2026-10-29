@@ -1,0 +1,76 @@
+[
+  {
+    "name": "search_datasets",
+    "description": "Search the data.overheid.nl catalogue of Dutch government open data (CKAN package_search). Returns matching datasets with titles/descriptions (mostly Dutch). Query may be Dutch or English; Dutch matches more.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search terms, Dutch or English. e.g. \"onderwijs\", \"verkeer\", \"health\", \"budget\". Use \"*:*\" to match everything."
+        },
+        "fq": {
+          "type": "string",
+          "description": "Solr filter query, e.g. \"organization:cbs-microdata\" or \"tags:onderwijs\"."
+        },
+        "rows": {
+          "type": "number",
+          "description": "Max results, 1-1000 (default 25)."
+        },
+        "start": {
+          "type": "number",
+          "description": "0-based offset for paging."
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort spec, e.g. \"metadata_modified desc\"."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "dataset_details",
+    "description": "Full dataset record by id or slug (CKAN package_show), including its resources. Each resource has a download \"url\" and \"format\" (CSV/JSON/etc.) — the portal is metadata-only, so fetch those URLs to get the actual data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Dataset id or slug, e.g. \"leerlingen-speciaal-onderwijs-per-samenwerkingsverband-primair-onderwijs\"."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "list_organizations",
+    "description": "List publishing organizations (ministries/agencies/provinces) on data.overheid.nl (CKAN organization_list). Use an org \"name\" in search_datasets fq, e.g. \"organization:<name>\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "Max orgs, 1-1000 (default 100)."
+        }
+      }
+    }
+  },
+  {
+    "name": "list_groups",
+    "description": "List thematic groups/categories on data.overheid.nl (CKAN group_list). Note: this portal currently exposes no groups (returns an empty list) — prefer fq facets on search_datasets to narrow by theme.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "Max groups, 1-1000 (default 100)."
+        }
+      }
+    }
+  }
+]
